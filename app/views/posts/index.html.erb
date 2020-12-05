@@ -1,0 +1,24 @@
+<h1>家計簿</h1>
+
+<table>
+  <thead>
+    <th>月</th>
+    <th>決済方法</th>
+    <th>支払先</th>
+    <th>金額</th>
+    <th>備考</th>
+  <thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.month %></td>
+        <td><%= post.method %></td>
+        <td><%= post.payee %></td>
+        <td><%= post.amount %></td>
+        <td><%= post.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
