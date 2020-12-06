@@ -1,7 +1,7 @@
-<h1>家計簿</h1>
-
+<h1>家計簿</h1>  
 <table>
   <thead>
+    <th>id</th>
     <th>月</th>
     <th>決済方法</th>
     <th>支払先</th>
@@ -20,5 +20,10 @@
         <td><%= post.note %></td>
       </tr>
     <% end %>
-  </tbody>
+  </tbody>  
 </table>
+
+  <%= form_tag import_posts_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "インポート" %>
+  <% end %>
