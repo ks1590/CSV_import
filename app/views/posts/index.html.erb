@@ -17,7 +17,7 @@
         <td><%= post.month %></td>
         <td><%= post.method %></td>
         <td><%= post.payee %></td>
-        <td><%= post.amount %></td>
+        <td><%= converting_to_jpy(post.amount) %></td>
         <td><%= post.note %></td>
       </tr>
     <% end %>
