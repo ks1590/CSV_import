@@ -1,5 +1,9 @@
 <h1>家計簿</h1>  
 <%= render 'form' %>
+<%= form_tag import_posts_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート" %>
+<% end %>
 <table class="table table-bordered">
   <thead>
     <th>id</th>
@@ -7,7 +11,7 @@
     <th>決済方法</th>
     <th>支払先</th>
     <th>金額</th>
-    <th>備考</th>
+    <th>メモ</th>
   <thead>
 
   <tbody>
@@ -23,8 +27,3 @@
     <% end %>
   </tbody>  
 </table>
-
-  <%= form_tag import_posts_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "インポート" %>
-  <% end %>
