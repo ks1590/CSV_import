@@ -13,19 +13,19 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_with(model: @post, local: true) do |f| %>
+      <%= form_with(model: @post) do |f| %>
         <div class="modal-body">
           <div class="form-group">
             <%= f.label :month, "日付" %>
-            <%= f.text_field :month, class:"form-control" %>
+            <%= f.date_field :month, class:"form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :method, "決済方法" %>
-            <%= f.text_field :method, class:"form-control" %>
+            <%= f.select :method, ["現金", "デビット・クレジットカード"], {}, class:"form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :payee, "支払先" %>
-            <%= f.text_field :payee, class:"form-control" %>
+            <%= f.select :payee, ["食費", "交際費", "衣類"], {}, class:"form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :amount, "金額" %>
