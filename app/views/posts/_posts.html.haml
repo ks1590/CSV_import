@@ -1,3 +1,6 @@
+%div
+  = pie_chart Post.group(:payee).sum(:amount)
+  /= pie_chart @posts,library: {title: "支出<br> 10000円"}
 %table.table.table-bordered
   %thead
     %th id
