@@ -1,0 +1,18 @@
+%table.table.table-bordered
+  %thead
+    %th id
+    %th 月
+    %th 決済方法
+    %th 支払先
+    %th 金額
+    %th メモ
+    %thead
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td= post.id
+        %td= post.month
+        %td= post.method
+        %td= post.payee
+        %td= number_to_currency(post.amount, unit: "￥", strip_insignificant_zeros: true)
+        %td= post.note

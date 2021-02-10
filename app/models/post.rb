@@ -9,5 +9,5 @@ class Post < ApplicationRecord
 
   # def self.updatable_attributes
   #   ["id", "month", "method", "payee", "amount", "note"]
-  # end
+  # end  
 end
