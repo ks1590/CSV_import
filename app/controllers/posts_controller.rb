@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   PREVIEW = 5
 
   def index
-    @posts = Post.page(params[:page]).per(PREVIEW)
+    @posts = Post.all
     @post = Post.new
   end
 
