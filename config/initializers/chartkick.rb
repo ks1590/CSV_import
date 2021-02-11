@@ -1,6 +1,6 @@
 Chartkick.options = {
   donut: true, # ドーナツグラフ
-  width: '400px',
+  width: '350px',
   colors: [ "#769fcd",
             "#b9d7ea",
             "#d6e6f2",
@@ -33,7 +33,7 @@ Chartkick.options = {
             textOutline: 0, #デフォルトではラベルが白枠で囲まれていてダサいので消す
           }
         },
-        size: '100%',
+        size: '90%',
         innerSize: '60%', # ドーナツグラフの中の円の大きさ
         borderWidth: 0,
       }
