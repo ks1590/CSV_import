@@ -4,8 +4,10 @@ class PostsController < ApplicationController
   #   redirect_to posts_url
   # end
 
+  PREVIEW = 5
+
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(PREVIEW)
     @post = Post.new
   end
 

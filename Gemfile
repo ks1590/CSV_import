@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 
 gem "chartkick"
+gem 'kaminari', '~> 0.17.0'
 
 gem 'faker'
 gem 'rails', '~> 5.2.4'
