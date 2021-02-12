@@ -3,15 +3,15 @@ class PostsController < ApplicationController
   #   Post.import(params[:file])
   #   redirect_to posts_url
   # end
+  before_action :set_posts, only: [:index, :create]
+
+  PREVIEW = 5
 
   def index
-    @posts = Post.all
-    @post = Post.new
   end
 
   def create
     Post.create(post_params)
-    @posts = Post.all
   end
   
   private
