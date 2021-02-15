@@ -1,4 +1,13 @@
-%h2 家計簿
-= render "form"
-.posts
-  = render "posts", posts: @posts
+= render "nav"
+.wrapper
+  = render "sidebar"
+  #content
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      %button#sidebarCollapse.btn.btn-info{:type => "button"}
+        %i.fas.fa-align-left
+        %span メニューを開く
+      %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+        新規作成
+    = render "form"
+    = render "chart"
+    = render "posts"
