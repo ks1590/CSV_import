@@ -9,6 +9,9 @@ gem 'erb2haml'
 gem "chartkick"
 gem 'kaminari', '~> 0.17.0'
 
+gem 'lazy_high_charts'
+gem 'font-awesome-sass', '~> 5.15.1'
+
 gem 'faker'
 gem 'rails', '~> 5.2.4'
 gem 'pg', '>= 0.18', '< 2.0'
