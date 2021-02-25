@@ -1,5 +1,13 @@
 = render "nav"
 = render "card"
-.posts
-  -# = render "posts", posts: @posts
-  = render "chart"
+= render "form"
+/= render "posts", posts: @posts
+%section
+  .container-fluid
+    .row.mb-5
+      .col-xl-10.col-lg-9.col-md-8.ml-auto
+        .row.align-items-center.flex
+          .col-xl-6.col-12.posts
+            = render "posts", posts: @posts
+          .col-xl-6.col-12
+            = render "chart"      

@@ -1,31 +1,35 @@
-/ Button trigger modal
-%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
-  新規作成
-/ Modal
-#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :tabindex => "-1"}
-  .modal-dialog.modal-dialog-centered
-    .modal-content
-      .modal-header
-        %h5#exampleModalLabel.modal-title 新規取引
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} ×
-      = form_with(model: @post) do |f|
-        .modal-body
-          .form-group
-            = f.label :month, "日付"
-            = f.date_field :month, class:"form-control"
-          .form-group
-            = f.label :method, "決済方法"
-            = f.select :method, ["現金", "デビット・クレジットカード"], {}, class:"form-control"
-          .form-group
-            = f.label :payee, "支払先"
-            = f.select :payee, ["食費", "交際費", "衣類"], {}, class:"form-control"
-          .form-group
-            = f.label :amount, "金額"
-            = f.text_field :amount, class:"form-control"
-          .form-group
-            = f.label :note, "メモ"
-            = f.text_field :note, class:"form-control"
-          .modal-footer
-            %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} 閉じる
-            = f.submit "投稿する", class:"btn btn-primary"
+%section
+  .container-fluid
+    .row.mb-5
+      .col-xl-10.col-lg-9.col-md-8.ml-auto
+        / Button trigger modal
+        %button.btn.btn-primary@{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+          新規作成
+        / Modal
+        #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :tabindex => "-1"}
+          .modal-dialog.modal-dialog-centered
+            .modal-content
+              .modal-header
+                %h5#exampleModalLabel.modal-title 新規取引
+                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} ×
+              = form_with(model: @post) do |f|
+                .modal-body
+                  .form-group
+                    = f.label :month, "日付"
+                    = f.date_field :month, class:"form-control"
+                  .form-group
+                    = f.label :method, "決済方法"
+                    = f.select :method, ["現金", "デビット・クレジットカード"], {}, class:"form-control"
+                  .form-group
+                    = f.label :payee, "支払先"
+                    = f.select :payee, ["食費", "交際費", "衣類"], {}, class:"form-control"
+                  .form-group
+                    = f.label :amount, "金額"
+                    = f.text_field :amount, class:"form-control"
+                  .form-group
+                    = f.label :note, "メモ"
+                    = f.text_field :note, class:"form-control"
+                  .modal-footer
+                    %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} 閉じる
+                    = f.submit "投稿する", class:"btn btn-primary"

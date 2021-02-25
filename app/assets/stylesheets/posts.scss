@@ -17,6 +17,13 @@ body {
 }
 
 /* navbar */
+.container {
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100%;
+}
+
 .sidebar {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url(images/img1.jpeg);
@@ -103,4 +110,17 @@ body {
     position: static;
   }
 }
+
 /* end of navbar */
+
+.table_sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: gold;
+  border-top:#FFFFFF;
+}
+
+.flex {
+  display: flex;
+}
