@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   PREVIEW = 5
 
   def index
-    @posts = Post.all
+    @posts = Post.order(month: :desc).page(params[:page]).per(PREVIEW)
     @post = Post.new
 
     @end_at = Date.today
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def create
     Post.create(post_params)
-    @posts = Post.all
+    @posts = Post.order(month: :desc).page(params[:page]).per(PREVIEW)
   end
   
   private

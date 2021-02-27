@@ -24,4 +24,4 @@
         %td= post.payee
         %td= number_to_currency(post.amount, unit: "円", strip_insignificant_zeros: true)
         %td= post.note
-/= paginate @posts
+= paginate @posts
