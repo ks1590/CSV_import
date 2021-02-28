@@ -5,5 +5,8 @@ class ApplicationController < ActionController::Base
     @last_year_sum = Post.last_year.group(:payee).sum(:amount)
     @current_month_sum = Post.current_month.group(:payee).sum(:amount)
     @last_month_sum = Post.last_month.group(:payee).sum(:amount)
+
+    @current_month = Post.current_month.sum(:amount)
+    @last_month = Post.last_month.sum(:amount)
   end
 end

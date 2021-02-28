@@ -1,11 +1,11 @@
 = render "nav"
-= render "card"
-= render "form"
-/= render "posts", posts: @posts
 %section
   .container-fluid
     .row.mb-5
       .col-xl-10.col-lg-9.col-md-8.ml-auto
+        .card_current_month
+          = render "card_current_month", { current_month: @current_month, last_month: @last_month }
+        = render "form"
         .row.align-items-center.flex
           .col-xl-6.col-12.posts
             = render "posts", posts: @posts

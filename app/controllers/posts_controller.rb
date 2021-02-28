@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # end
   before_action :set_posts, only: [:index, :create]
 
-  PREVIEW = 5
+  PREVIEW = 10
 
   def index
     @posts = Post.order(month: :desc).page(params[:page]).per(PREVIEW)
@@ -29,6 +29,8 @@ class PostsController < ApplicationController
   def create
     Post.create(post_params)
     @posts = Post.order(month: :desc).page(params[:page]).per(PREVIEW)
+    @current_month = Post.current_month.sum(:amount)
+    @last_month = Post.last_month.sum(:amount)
   end
   
   private

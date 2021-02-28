@@ -7,13 +7,14 @@
       .row
         / sidebar
         .col-xl-2.col-lg-3.col-md-4.sidebar.fixed-top
-          %a.navbar-brand.text-white.d-block.mx-auto.text-center.py-3.mb-4.bottom-border{:href => "#"} CodeAndCreate
+          %a.navbar-brand.text-white.d-block.mx-auto.text-center.py-3.mb-4.bottom-border{:href => "#"} Rabbit
           .bottom-border.pb-3            
-            %a.text-white{:href => "#"} Helen Smith
+            %a.text-white{:href => "#"} User Name
           %ul.navbar-nav.flex-column.mt-4
             %li.nav-item                          
-              %i.fas.fa-home.text-light.fa-lg.mr-3>
-              = render "modal"
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-home.text-light.fa-lg.mr-3>
+                Home
             %li.nav-item
               %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
                 %i.fas.fa-user.text-light.fa-lg.mr-3>
