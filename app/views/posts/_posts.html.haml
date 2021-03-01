@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -# .chart
 -#   .flex_item
 -#     = pie_chart @current_month_sum,library: {title: {text: "今月<br> #{number_to_currency(Post.current_month.sum(:amount), unit: "円", strip_insignificant_zeros: true)}"}}
@@ -9,6 +10,9 @@
 -#     = pie_chart @last_year_sum,library: {title: {text: "去年<br> #{number_to_currency(Post.last_year.sum(:amount), unit: "円", strip_insignificant_zeros: true)}"}}                           
 %h3.text-muted.text-center.mb-3 取引履歴
 %table.table.table-bordered.table_sticky
+=======
+%table.table.table-bordered
+>>>>>>> master
   %thead
     %th 月
     %th 決済方法

@@ -17,7 +17,18 @@
 //= require activestorage
 //= require turbolinks
 //= require chartkick
+<<<<<<< HEAD
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
 //= require_tree .
+=======
+//= require highcharts
+//= require_tree .
+
+$(document).ready(function () {
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+  });
+});
+>>>>>>> master
