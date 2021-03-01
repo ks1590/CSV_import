@@ -1,0 +1,43 @@
+.container
+  #modal.modal-container
+    .modal
+      .modal-content
+        %h3 お問い合わせフォーム
+        %button#close.close-btn ✖︎
+        %form.modal-form
+          %div
+            %label{:for => "お名前"} お名前
+            %input.form-input{:placeholder => "漢字で入力してください。　例）山田　太郎", :type => "text"}/
+          %div
+            %label{:for => "お名前"} メールアドレス
+            %input.form-input{:placeholder => "例）test@gmail.com", :type => "text"}/
+          %div
+            %label{:for => "出身都道府県"} 出身都道府県
+            %select.form-input{:name => "都道府県"}
+              %option{:value => ""} 都道府県をお選びください。        
+          %div
+            %label{:for => "性別"} 性別
+            = succeed "\u{7537}" do
+              %input{:name => "sex", :type => "radio"}/
+            = succeed "\u{5973}" do
+              %input{:name => "sex", :type => "radio"}/
+          %div
+            %label{:for => "お問い合わせ内容"} お問い合わせ内容
+            %textarea.form-input{:cols => "30", :id => "", :name => "", :rows => "10"}
+          %div
+            %label{:for => "その他"} その他
+            %input.form-input{:style => "height: 80px;", :type => "text"}/
+          %input#submit.submit-btn{:type => "submit", :value => "送信"}/
+  %button#open.open-btn お問い合わせ
+
+:javascript
+  const open = document.getElementById("open");
+  const close = document.getElementById("close");
+  const modal = document.getElementById("modal");
+  const submit = document.getElementById("submit");
+  
+  open.addEventListener('click', () => modal.classList.add('show-modal'));
+  
+  close.addEventListener('click', () => modal.classList.remove('show-modal'));
+  
+  window.addEventListener('click', e => e.target == modal ? modal.classList.remove('show-modal') : false);

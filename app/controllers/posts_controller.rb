@@ -5,13 +5,71 @@ class PostsController < ApplicationController
   # end
   before_action :set_posts, only: [:index, :create]
 
-  PREVIEW = 5
+  PREVIEW = 10
 
   def index
+    @posts = Post.order(month: :desc).page(params[:page]).per(PREVIEW)
+    @post = Post.new
+
+    @end_at = Date.today
+    @start_at = @end_at - 6
+    @categories = @start_at.upto(@end_at).to_a
+    @data = [5, 6, 3, 1, 2, 4, 7]    
+
+    @h = LazyHighCharts::HighChart.new("graph") do |f|
+      f.chart(:type => "column")
+      # f.title(:text => "月間支出")
+      f.xAxis(:categories => @categories)
+      f.series(:name => "小計",
+              :data => @data)
+    end
+
+    # product_A_sales = [ 1_000_000, 1_200_000, 1_300_000,
+    #   1_400_000, 1_200_000, 1_100_000 ]
+    # product_B_sales = [   300_000,   500_000,   750_000,
+    #   1_150_000, 1_350_000, 1_600_000 ] 
+
+    @food = Post.current_month.where(payee: "食費").sum(:amount)
+    @fun = Post.current_month.where(payee: "交際費").sum(:amount)
+    @close = Post.current_month.where(payee: "衣類").sum(:amount)
+
+    @chart = LazyHighCharts::HighChart.new("graph2") do |c|
+      # c.title(text: "製品別上期売上")
+      c.series({
+      colorByPoint: true,
+        # ここでは各月の売上額合計をグラフの値とする
+        data: [{
+          name: '食費',
+          # y: product_A_sales.reduce{|sum,e| sum + e}
+          y: @food
+        }, {
+          name: '交際費', 
+          # y: product_B_sales.reduce{|sum,e| sum + e}
+          y: @fun
+      }, {
+          name: '衣類', 
+          # y: product_B_sales.reduce{|sum,e| sum + e}
+          y: @close
+      }]
+      })
+      c.plotOptions(pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '{point.name}: {point.percentage:.1f} %',
+      }
+      })
+      # グラフの種類として「パイチャート」を指定
+      c.chart(type: "pie")
+    end
   end
 
   def create
     Post.create(post_params)
+    @posts = Post.order(month: :desc).page(params[:page]).per(PREVIEW)
+    @current_month = Post.current_month.sum(:amount)
+    @last_month = Post.last_month.sum(:amount)
   end
   
   private

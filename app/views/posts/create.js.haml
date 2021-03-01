@@ -2,3 +2,5 @@ $("textarea").val("");
 $("input").val("");
 $('#exampleModal').modal('hide')
 $('.posts').html("#{escape_javascript(render 'posts', posts: @posts)}")
+/$('.card_current_month').html("#{escape_javascript(render 'card_current_month', {current_month: @current_month, last_month: @last_month})}")
+$('.card_current_month').html("#{escape_javascript(render 'card_current_month')}")

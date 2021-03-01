@@ -1,9 +1,4 @@
-.chart
-  .flex_item
-    = pie_chart @current_month_sum,library: {title: {text: "今月<br> #{number_to_currency(Post.current_month.sum(:amount), unit: "円", strip_insignificant_zeros: true)}"}}
-  .flex_item
-    = pie_chart @last_month_sum,library: {title: {text: "先月<br> #{number_to_currency(Post.last_month.sum(:amount), unit: "円", strip_insignificant_zeros: true)}"}}
-  .flex_item
-    = pie_chart @current_year_sum,library: {title: {text: "今年<br> #{number_to_currency(Post.current_year.sum(:amount), unit: "円", strip_insignificant_zeros: true)}"}}
-  .flex_item
-    = pie_chart @last_year_sum,library: {title: {text: "去年<br> #{number_to_currency(Post.last_year.sum(:amount), unit: "円", strip_insignificant_zeros: true)}"}}
+%h3.text-muted.text-center.mb-3 月間支出
+= high_chart("sample", @h)
+= high_chart("sample", @chart)
+

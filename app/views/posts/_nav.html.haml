@@ -1,9 +1,74 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  %a.navbar-brand{href: "#"} ダッシュボード 
-  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", type: "button"}
+/ navbar
+%nav.navbar.navbar-expand-md.navbar-light
+  %button.navbar-toggler.ml-auto.mb-2.bg-light{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
-    %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Search", type: "search"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"} Search
+  #myNavbar.collapse.navbar-collapse
+    .container-fluid
+      .row
+        / sidebar
+        .col-xl-2.col-lg-3.col-md-4.sidebar.fixed-top
+          %a.navbar-brand.text-white.d-block.mx-auto.text-center.py-3.mb-4.bottom-border{:href => "#"} Rabbit
+          .bottom-border.pb-3            
+            %a.text-white{:href => "#"} User Name
+          %ul.navbar-nav.flex-column.mt-4
+            %li.nav-item                          
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-home.text-light.fa-lg.mr-3>
+                Home
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-user.text-light.fa-lg.mr-3>
+                Profile
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-envelope.text-light.fa-lg.mr-3>
+                Inbox
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-shopping-cart.text-light.fa-lg.mr-3>
+                Sales
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-chart-line.text-light.fa-lg.mr-3>
+                Analytics
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-chart-bar.text-light.fa-lg.mr-3>
+                Charts
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-table.text-light.fa-lg.mr-3>
+                Tables
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-wrench.text-light.fa-lg.mr-3>
+                Settings
+            %li.nav-item
+              %a.nav-link.text-white.p-3.mb-2.sidebar-link{:href => "#"}
+                %i.fas.fa-file-alt.text-light.fa-lg.mr-3>
+                Documentation
+        / end of sidebar
+        / top-nav
+        .col-xl-10.col-lg-9.col-md-8.ml-auto.bg-dark.fixed-top.py-2.top-navbar
+          .row.align-items-center
+            .col-md-4
+              %h4.text-light.text-uppercase.mb-0 Dashboard
+            .col-md-5
+              %form
+                .input-group
+                  %input.form-control.search-input{:placeholder => "Search...", :type => "text"}/
+                  %button.btn.btn-white.search-button{:type => "button"}
+                    %i.fas.fa-search.text-danger
+            .col-md-3
+              %ul.navbar-nav
+                %li.nav-item.icon-parent
+                  %a.nav-link.icon-bullet{:href => "#"}
+                    %i.fas.fa-comments.text-muted.fa-lg
+                %li.nav-item.icon-parent
+                  %a.nav-link.icon-bullet{:href => "#"}
+                    %i.fas.fa-bell.text-muted.fa-lg
+                %li.nav-item.ml-md-auto
+                  %a.nav-link{"data-target" => "#sign-out", "data-toggle" => "modal", :href => "#"}
+                    %i.fas.fa-sign-out-alt.text-danger.fa-lg
+        / end of top-nav
+/ end of navbar

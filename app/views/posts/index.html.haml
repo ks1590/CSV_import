@@ -1,13 +1,13 @@
 = render "nav"
-.wrapper
-  = render "sidebar"
-  #content
-    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      %button#sidebarCollapse.btn.btn-info{:type => "button"}
-        %i.fas.fa-align-left
-        %span メニューを開く
-      %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
-        新規作成
-    = render "form"
-    = render "chart"
-    = render "posts"
+%section
+  .container-fluid
+    .row.mb-5
+      .col-xl-10.col-lg-9.col-md-8.ml-auto
+        .card_current_month
+          = render "card_current_month", { current_month: @current_month, last_month: @last_month}
+        = render "form"
+        .row.align-items-center.flex
+          .col-xl-6.col-12.posts
+            = render "posts", posts: @posts
+          .col-xl-6.col-12
+            = render "chart"      
