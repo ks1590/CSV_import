@@ -1,9 +1,9 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-.chart {
-  display: flex;
-  direction: row;
-}
+// .chart {
+//   display: flex;
+//   direction: row;
+// }
 
 .flex_item {
   padding: 0;
@@ -121,4 +121,16 @@ body {
 
 .flex {
   display: flex;
+}
+
+.table thead th {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.table tbody td {
+  padding: 7px;
+  text-align: center;
 }

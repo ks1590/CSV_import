@@ -8,13 +8,12 @@
 -#   .flex_item
 -#     = pie_chart @last_year_sum,library: {title: {text: "去年<br> #{number_to_currency(Post.last_year.sum(:amount), unit: "円", strip_insignificant_zeros: true)}"}}                           
 %h3.text-muted.text-center.mb-3 取引履歴
-%table.table.table-bordered.table_sticky
+%table.table.table-hover
   %thead
     %th 月
     %th 決済方法
     %th 支払先
     %th 金額
-    %th メモ
     %thead
   %tbody
     - @posts.each do |post|
@@ -23,5 +22,4 @@
         %td= post.method
         %td= post.payee
         %td= number_to_currency(post.amount, unit: "円", strip_insignificant_zeros: true)
-        %td= post.note
 = paginate @posts
