@@ -19,7 +19,7 @@
             = f.collection_select :payment_id, Payment.all, :id, :name, {prompt: "選択してください"}, {class:"form-control"}
           .form-group
             = f.label :payee, "支払先"
-            = f.select :payee, ["食費", "交際費", "衣類"], {}, class:"form-control"
+            = f.select :payee, ["食費", "交際費", "衣類", "通信費", "買い物", "住宅"], {}, class:"form-control"
           .form-group
             = f.label :amount, "金額"
             = f.text_field :amount, class:"form-control"
